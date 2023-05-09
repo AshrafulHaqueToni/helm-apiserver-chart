@@ -1,0 +1,19 @@
+# Default values for httpapiserver.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+containerSpec:
+  name: httpapiserver
+  image: ashraf10039/httpapiserver
+  port: 8081
+service:
+  type: NodePort
+  port: 8081
+  nodePort: 30045
+  protocol: TCP
+
+replicaSpec:
+  replicas: 2
+  matchLabels:
+    app: httpapiserver
+    cluster: kind
